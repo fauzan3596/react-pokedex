@@ -10,6 +10,20 @@
   font-family: "Montserrat", sans-serif;
 }
 
+
+.card-pokemon-img .image:after {
+  background-color: rgba(233, 99, 3, 0.2);
+}
+
+.card-pokemon-img .image:after {
+  width: 16.5rem;
+  height: 16.5rem;
+  background-color: transparent;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+}
+
 .card-body{
   border-radius: 1.2rem !important;
 }

@@ -13,26 +13,26 @@ function CardPokemon({ url }) {
   return (
     <>
       <Col md={4}>
-        <Card className="w-100 card-pokemon" style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={detail.sprites?.other.home.front_default} />
-          <Card.Body>
-            #{detail.id}
-            <Card.Text  className="d-flex justify-content-between align-items-start">
-              <div>
-                <h3><b>{detail.name}</b></h3>
-              </div>
-              <div>
-              {detail.types?.map((tipe, index) => {
-                return (
-                  <>
-                    <Image width="25px" src={`/types/icons/${tipe.type.name}.svg`} />
-                  </>
-                )
-              })}
-              </div>
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <button className="card-pokemon w-100">
+          <div className="image">
+            <Image className="card-pokemon-img w-100" variant="top" src={detail.sprites?.other.home.front_default} />
+          </div>
+          <div>
+          #{detail.id}
+          </div>
+          <div className="info d-flex justify-content-between align-items-start">
+          <h4><b>{detail.name}</b></h4>
+          <div>
+            {detail.types?.map((tipe, index) => {
+              return (
+                <>
+                  <Image width="25px" src={`/types/icons/${tipe.type.name}.svg`} />
+                </>
+              )
+            })}
+            </div>
+          </div>
+        </button>
       </Col>
     </>
   );
