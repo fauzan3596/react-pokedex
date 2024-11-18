@@ -1,102 +1,112 @@
 {
     "poke-types":[
         {
+            "id": 1,
             "name": "normal",
             "icon": "icons/normal.png",
             "icon_bg": "icons-bg/normal.png"
         },
         {
+            "id": 2,
             "name": "fighting",
             "icon": "icons/fighting.png",
             "icon_bg": "icons-bg/fighting.png"
         },
         {
+            "id": 3,
             "name": "flying",
             "icon": "icons/flying.png",
             "icon_bg": "icons-bg/flying.png"
         },
         {
+            "id": 4,
             "name": "poison",
             "icon": "icons/poison.png",
             "icon_bg": "icons-bg/poison.png"
         },
         {
+            "id": 5,
             "name": "ground",
             "icon": "icons/ground.png",
             "icon_bg": "icons-bg/ground.png"
         },
         {
+            "id": 6,
             "name": "rock",
             "icon": "icons/rock.png",
             "icon_bg": "icons-bg/rock.png"
         },
         {
+            "id": 7,
             "name": "bug",
             "icon": "icons/bug.png",
             "icon_bg": "icons-bg/bug.png"
         },
         {
+            "id": 8,
             "name": "ghost",
             "icon": "icons/ghost.png",
             "icon_bg": "icons-bg/ghost.png"
         },
         {
+            "id": 9,
             "name": "steel",
             "icon": "icons/steel.png",
             "icon_bg": "icons-bg/steel.png"
         },
         {
+            "id": 10,
             "name": "fire",
             "icon": "icons/fire.png",
             "icon_bg": "icons-bg/fire.png"
         },
         {
+            "id": 11,
             "name": "water",
             "icon": "icons/water.png",
             "icon_bg": "icons-bg/water.png"
         },
         {
+            "id": 12,
             "name": "grass",
             "icon": "icons/grass.png",
             "icon_bg": "icons-bg/grass.png"
         },
         {
+            "id": 13,
             "name": "electric",
             "icon": "icons/electric.png",
             "icon_bg": "icons-bg/electric.png"
         },
         {
+            "id": 14,
             "name": "psychic",
             "icon": "icons/psychic.png",
             "icon_bg": "icons-bg/psychic.png"
         },
         {
+            "id": 15,
             "name": "ice",
             "icon": "icons/ice.png",
             "icon_bg": "icons-bg/ice.png"
         },
         {
+            "id": 16,
             "name": "dragon",
             "icon": "icons/dragon.png",
             "icon_bg": "icons-bg/dragon.png"
         },
         {
+            "id": 17,
             "name": "dark",
             "icon": "icons/dark.png",
             "icon_bg": "icons-bg/dark.png"
         },
         {
+            "id": 18,
             "name": "fairy",
             "icon": "icons/fairy.png",
             "icon_bg": "icons-bg/fairy.png"
-        },
-        {
-            "name": "stellar",
-            "icon": ""
-        },
-        {
-            "name": "unknown",
-            "icon": ""
         }
     ]
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPokemons, getTypes } from "../axios/fetchApi";
 import CardPokemon from "./CardPokemon";
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 function DiscoverPokemon() {
   const [pokemons, setPokemons] = useState([]);
@@ -17,11 +17,13 @@ function DiscoverPokemon() {
   return (
     <div>
       <h2>Discover Pokémon</h2>
-      <Row>
-        {pokemons.map((pokemon, i) => (
-          <CardPokemon url={pokemon.url} key={i} />
-        ))}
-      </Row>
+      <Container>
+        <Row>
+          {pokemons.map((pokemon, i) => (
+            <CardPokemon url={pokemon.url} key={i} />
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 }
