@@ -22,7 +22,7 @@ function CardPokemon({ url }) {
             {detail.types?.map((tipe, index) => {
               return (
                 <>
-                <Image src={`types/icons/${tipe.type.name}`} ></Image>
+                <Image src={`/types/icons/${tipe.type.name}.png`} ></Image>
                 {tipe.type.name}
                 </>
               )
