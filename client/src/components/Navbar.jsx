@@ -3,6 +3,7 @@ import pokeballImg from "../assets/pokeball.svg";
 import orangeBall from "../assets/orange-pokeball.svg";
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2"
 
 function Navbar() {
   const location = useLocation();
@@ -12,7 +13,15 @@ function Navbar() {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    navigate("/search", { state: { query } });
+    if (query.length > 3) {
+      setQuery("");
+      navigate("/search", { state: { query } });
+    } else {
+      Swal.fire({
+        title: "Please enter more than 3 letters for the search!",
+        icon: "warning"
+      });
+    }
   };
 
   const navLinkStyle = ({ isActive }) => ({

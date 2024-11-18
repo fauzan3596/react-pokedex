@@ -20,7 +20,7 @@ function DiscoverPokemon() {
   console.log(types);
 
   return (
-    <div>
+    <section>
       <h2>Discover Pokémon</h2>
       {loading ? (
         <LoadingSpinner loading={loading} />
@@ -31,7 +31,7 @@ function DiscoverPokemon() {
           ))}
         </Row>
       )}
-    </div>
+    </section>
   );
 }
 

@@ -36,5 +36,20 @@ const getTypes = async (cb) => {
   }
 };
 
+const getPokemonsBySearch = async (cb) => {
+  try {
+    const pokemons = await axios({
+      method: "GET",
+      url: "https://pokeapi.co/api/v2/pokemon",
+      params: {
+        limit: 1302,
+      },
+    });
+    cb(pokemons.data.results);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export { getPokemons, getPokemonDetails, getTypes };
+
+export { getPokemons, getPokemonDetails, getTypes, getPokemonsBySearch };
