@@ -1,0 +1,102 @@
+{
+    "poke-types":[
+        {
+            "name": "normal",
+            "icon": "icons/normal.png",
+            "icon_bg": "icons-bg/normal.png"
+        },
+        {
+            "name": "fighting",
+            "icon": "icons/fighting.png",
+            "icon_bg": "icons-bg/fighting.png"
+        },
+        {
+            "name": "flying",
+            "icon": "icons/flying.png",
+            "icon_bg": "icons-bg/flying.png"
+        },
+        {
+            "name": "poison",
+            "icon": "icons/poison.png",
+            "icon_bg": "icons-bg/poison.png"
+        },
+        {
+            "name": "ground",
+            "icon": "icons/ground.png",
+            "icon_bg": "icons-bg/ground.png"
+        },
+        {
+            "name": "rock",
+            "icon": "icons/rock.png",
+            "icon_bg": "icons-bg/rock.png"
+        },
+        {
+            "name": "bug",
+            "icon": "icons/bug.png",
+            "icon_bg": "icons-bg/bug.png"
+        },
+        {
+            "name": "ghost",
+            "icon": "icons/ghost.png",
+            "icon_bg": "icons-bg/ghost.png"
+        },
+        {
+            "name": "steel",
+            "icon": "icons/steel.png",
+            "icon_bg": "icons-bg/steel.png"
+        },
+        {
+            "name": "fire",
+            "icon": "icons/fire.png",
+            "icon_bg": "icons-bg/fire.png"
+        },
+        {
+            "name": "water",
+            "icon": "icons/water.png",
+            "icon_bg": "icons-bg/water.png"
+        },
+        {
+            "name": "grass",
+            "icon": "icons/grass.png",
+            "icon_bg": "icons-bg/grass.png"
+        },
+        {
+            "name": "electric",
+            "icon": "icons/electric.png",
+            "icon_bg": "icons-bg/electric.png"
+        },
+        {
+            "name": "psychic",
+            "icon": "icons/psychic.png",
+            "icon_bg": "icons-bg/psychic.png"
+        },
+        {
+            "name": "ice",
+            "icon": "icons/ice.png",
+            "icon_bg": "icons-bg/ice.png"
+        },
+        {
+            "name": "dragon",
+            "icon": "icons/dragon.png",
+            "icon_bg": "icons-bg/dragon.png"
+        },
+        {
+            "name": "dark",
+            "icon": "icons/dark.png",
+            "icon_bg": "icons-bg/dark.png"
+        },
+        {
+            "name": "fairy",
+            "icon": "icons/fairy.png",
+            "icon_bg": "icons-bg/fairy.png"
+        },
+        {
+            "name": "stellar",
+            "icon": ""
+        },
+        {
+            "name": "unknown",
+            "icon": ""
+        }
+    ]
+}
