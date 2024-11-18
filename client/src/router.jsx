@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import MainLayout from "./layouts/MainLayout";
 import Pokedex from "./pages/Pokedex";
 import Favorite from "./pages/Favorite";
+import SearchPage from "./pages/SearchPage";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/search',
-                elemmet: <Home />
+                element: <SearchPage />
             },
             {
                 path: '/favorite',

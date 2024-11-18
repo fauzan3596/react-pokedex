@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import pokeballImg from "../assets/pokeball.svg";
 import orangeBall from "../assets/orange-pokeball.svg";
 import { FaSearch } from "react-icons/fa";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
+  const [query, setQuery] = useState("");
+
+  const navigate = useNavigate();
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    navigate("/search", { state: { query } });
+  };
 
   const navLinkStyle = ({ isActive }) => ({
     backgroundColor: isActive ? "#4a1885" : "transparent",
@@ -95,12 +103,15 @@ function Navbar() {
           <form
             className="d-flex align-items-center position-relative"
             role="search"
+            onSubmit={onSubmitHandler}
           >
             <FaSearch className="position-absolute ms-3" />
             <input
               className="form-control me-2 border-0 rounded-pill ps-5 bg-white search-input"
               type="search"
               placeholder="Search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
           </form>
         </div>

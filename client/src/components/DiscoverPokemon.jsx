@@ -2,26 +2,35 @@ import React, { useEffect, useState } from "react";
 import { getPokemons, getTypes } from "../axios/fetchApi";
 import CardPokemon from "./CardPokemon";
 import { Row } from "react-bootstrap";
+import LoadingSpinner from "./loadingSpinner";
 
 function DiscoverPokemon() {
   const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
-    getPokemons((data) => setPokemons(data));
+    getPokemons((data) => {
+      setPokemons(data);
+      setLoading(false);
+    });
     getTypes((data) => setTypes(data));
   }, []);
 
-  console.log(types)
+  console.log(types);
 
   return (
     <div>
       <h2>Discover Pokémon</h2>
-      <Row>
-        {pokemons.map((pokemon, i) => (
-          <CardPokemon url={pokemon.url} key={i} />
-        ))}
-      </Row>
+      {loading ? (
+        <LoadingSpinner loading={loading} />
+      ) : (
+        <Row>
+          {pokemons.map((pokemon, i) => (
+            <CardPokemon url={pokemon.url} key={i} />
+          ))}
+        </Row>
+      )}
     </div>
   );
 }
