@@ -8,12 +8,11 @@ function CardPokemon({ url }) {
   useEffect(() => {
     getPokemonDetails(url, (data) => setDetail(data));
   }, [url]);
-  
 
   return (
     <>
-      <Col md={4}>
-        <button className="card-pokemon w-100">
+      <Col key={detail.id} md={4}>
+        <button href={`detail/${detail.id}`} className="card-pokemon w-100">
           <div className="image">
             <Image className="card-pokemon-img w-100" variant="top" src={detail.sprites?.other.home.front_default} />
           </div>
