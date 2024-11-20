@@ -1,5 +1,5 @@
 import React from "react";
-import pokeballImg from "../assets/pokeball.svg";
+import pokeballImg from "../../public/logo.svg";
 import orangeBall from "../assets/orange-pokeball.svg";
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useLocation } from "react-router-dom";
@@ -23,10 +23,10 @@ function Navbar() {
             src={pokeballImg}
             className="mb-2 me-2"
             alt="Pokeball Image"
-            height={35}
-            width={35}
+            height={25}
+            // width={35}
           />
-          <h1 className="d-inline fs-4 text-white">PokéVerse</h1>
+          {/* <h1 className="d-inline fs-4 text-white">PokéVerse</h1> */}
         </NavLink>
         <button
           className="navbar-toggler"
