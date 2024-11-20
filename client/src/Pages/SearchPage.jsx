@@ -25,7 +25,7 @@ function SearchPage() {
 
   return (
     <section className="container-fluid">
-      <h2 className="py-3 mx-3">Search Results for "{query}" pokemons</h2>
+      <h2 className="py-3 mx-3">Found {filteredPokemons.length} results for "{query}" pokemons</h2>
       {
         filteredPokemons.length === 0 && <p>There's no pokemon with that keywords</p>
       }
