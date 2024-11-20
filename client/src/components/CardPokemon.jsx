@@ -14,7 +14,7 @@ function CardPokemon({ url }) {
 
   return (
     <>
-      <Card as="a" href={`detail/${detail.id}`} className="card-pokemon w-100">
+      <Card as="a" href={`detail/${detail.name}`} className="card-pokemon w-100">
         <div className="image">
           <Image className="card-pokemon-img w-100" variant="top" src={detail.sprites?.other.home.front_default} />
         </div>

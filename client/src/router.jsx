@@ -18,12 +18,12 @@ const router = createBrowserRouter([
                 element: <Pokedex />
             },
             {
-                path: '/detail/:id',
-                elemmet: <Detail />
+                path: '/detail/:name',
+                element: <Detail />
             },
             {
                 path: '/search',
-                elemmet: <Home />
+                element: <Home />
             },
             {
                 path: '/favorite',
