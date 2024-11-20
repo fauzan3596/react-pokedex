@@ -2,32 +2,36 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { getPokemons, getTypes } from "../axios/fetchApi";
 import CardPokemon from "../components/CardPokemon";
+import axios from "axios";
 
 function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
+
+  console.log(pokemons.length)
+
   useEffect(() => {
     getPokemons((data) => setPokemons(data));
     getTypes((data) => setTypes(data));
   }, []);
 
-  // console.log(types)
-
-  const handleList = async (typeList) => {
-    alert(typeList);
+  const handleList = async (url) => {
+    if(url != 'all'){
+      try {
+        const filter = await axios({
+          method: "GET",
+          url: url,
+        });
+        // console.log(filter.data.pokemon)
+        // data
+        setPokemons(filter.data.pokemon);
+        console.log(pokemons)
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
-
-  // const getPokemonDetails = async (url, cb) => {
-  //   try {
-  //     const detail = await axios({
-  //       method: "GET",
-  //       url: url,
-  //     });
-  //     cb(detail.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  console.log(pokemons.length)
 
 
   return (
@@ -46,7 +50,7 @@ function Pokedex() {
                   if(i < 18){
                     return( 
                       <>
-                        <ListGroup.Item className="" action onClick={() => handleList(type.name)} style={{border:'none'}}>
+                        <ListGroup.Item className="" action onClick={() => handleList(type.url)} style={{border:'none'}}>
                           <Image width="25px" className="" src={`/types/icons/${type.name}.svg`} style={{marginRight:'10px'}} />
                           {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
                         </ListGroup.Item>
