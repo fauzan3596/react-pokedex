@@ -3,6 +3,7 @@ import { getPokemonDetails } from "../axios/fetchApi";
 import { Image, Row, Col, Card } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import pokeballImg from "../assets/pokeball.svg";
 
 function CardPokemon({ url }) {
   const [detail, setDetail] = useState({});
@@ -10,13 +11,22 @@ function CardPokemon({ url }) {
   useEffect(() => {
     getPokemonDetails(url, (data) => setDetail(data));
   }, [url]);
-  
+
+  const getPokemonImage = () => {
+    if (detail.sprites?.other.home.front_default) {
+      return detail.sprites?.other.home.front_default;
+    } else if (detail.sprites?.other["official-artwork"].front_default) {
+      return detail.sprites?.other["official-artwork"].front_default;
+    } else {
+      return pokeballImg;
+    }
+  };
 
   return (
     <>
-      <Card as="a" href={`detail/${detail.id}`} className="card-pokemon w-100">
+      <Card as="a" href={`detail/${detail.name}`} className="card-pokemon w-100">
         <div className="image">
-          <Image className="card-pokemon-img w-100" variant="top" src={detail.sprites?.other.home.front_default} />
+          <Image className="card-pokemon-img w-100" variant="top" src={getPokemonImage()} />
         </div>
         <div>
         #{detail.id}

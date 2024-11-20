@@ -5,6 +5,7 @@ import Pokedex from "./pages/Pokedex";
 import Favorite from "./pages/Favorite";
 import SearchPage from "./pages/SearchPage";
 
+import Detail from "./components/Detail"
 const router = createBrowserRouter([
     {
         path: '/',
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
                 element: <Pokedex />
             },
             {
-                path: '/detail:id',
-                element: <Home />
+                path: '/detail/:name',
+                element: <Detail />
             },
             {
                 path: '/search',

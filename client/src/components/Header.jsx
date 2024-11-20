@@ -1,5 +1,6 @@
 import React from "react";
-import headerImg from "../assets/header-image.jpg"
+import headerImg from "../assets/header-image.jpg";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -24,13 +25,14 @@ function Header() {
         </p>
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-7 col-sm-8 col-12">
-            <button className="btn btn-info btn-lg w-100 rounded-pill fw-semibold">
-              Explore Now
-            </button>
+            <Link to="/pokedex">
+              <button className="btn btn-info btn-lg w-100 rounded-pill fw-semibold">
+                Explore Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
-      
     </header>
   );
 }

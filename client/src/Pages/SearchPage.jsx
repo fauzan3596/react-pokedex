@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getPokemonsBySearch } from "../axios/fetchApi";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import CardPokemon from "../components/CardPokemon";
 import LoadingSpinner from "../components/loadingSpinner";
 
@@ -32,11 +32,15 @@ function SearchPage() {
       {loading ? (
         <LoadingSpinner loading={loading} />
       ) : (
-        <Row>
-          {filteredPokemons.map((pokemon, i) => (
-            <CardPokemon url={pokemon.url} key={i} />
-          ))}
-        </Row>
+        <Col md={10} className="mx-auto">
+            <Row>
+              {filteredPokemons.map((pokemon, i) => (
+                <Col md={4}>
+                  <CardPokemon url={pokemon.url} />
+                </Col>
+              ))}
+            </Row>
+          </Col>
       )}
     </section>
   );
