@@ -35,7 +35,7 @@ function DiscoverPokemon() {
           <div className="row d-flex justify-content-center mb-3">
             <div className="col-5">
               <Link to="/pokedex">
-                <button className="btn btn-primary-subtle w-100 py-2 rounded-pill">
+                <button className="btn btn-info text-white w-100 py-2 rounded-pill">
                   View All pokemons
                 </button>
               </Link>

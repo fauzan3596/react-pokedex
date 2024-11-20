@@ -30,9 +30,9 @@ function CardPokemon({ url }) {
         <div>
           {detail.types?.map((tipe, index) => {
             return (
-              <>
-                <Image width="25px" src={`/types/icons/${tipe.type.name}.svg`} />
-              </>
+  
+                <Image width="25px" src={`/types/icons/${tipe.type.name}.svg`} key={index} />
+  
             )
           })}
           </div>
