@@ -6,6 +6,7 @@ import Favorite from "./pages/Favorite";
 import SearchPage from "./pages/SearchPage";
 
 import Detail from "./components/Detail"
+import ErrorPage from "./pages/ErrorPage";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: '/favorite',
                 element: <Favorite />
+            },
+            {
+                path: '*',
+                element: <ErrorPage />
             }
         ]
     }

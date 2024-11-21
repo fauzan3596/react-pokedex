@@ -4,6 +4,7 @@ import { getPokemonsBySearch } from "../axios/fetchApi";
 import { Row, Col } from "react-bootstrap";
 import CardPokemon from "../components/CardPokemon";
 import LoadingSpinner from "../components/loadingSpinner";
+import ErrorPage from "./ErrorPage";
 
 function SearchPage() {
   const location = useLocation();
@@ -25,14 +26,16 @@ function SearchPage() {
 
   return (
     <section className="container-fluid">
-      <h2 className="py-3 mx-3">Found {filteredPokemons.length} results for "{query}" pokemons</h2>
-      {
-        filteredPokemons.length === 0 && <p>There's no pokemon with that keywords</p>
-      }
-      {loading ? (
+      {filteredPokemons.length === 0 ? (
+        <ErrorPage query={query} type="search" />
+      ) : loading ? (
         <LoadingSpinner loading={loading} />
       ) : (
-        <Col md={10} className="mx-auto">
+        <>
+          <h2 className="py-3 mx-3">
+            Found {filteredPokemons.length} results for "{query}" pokemons
+          </h2>
+          <Col md={10} className="mx-auto">
             <Row>
               {filteredPokemons.map((pokemon, i) => (
                 <Col md={4}>
@@ -41,6 +44,7 @@ function SearchPage() {
               ))}
             </Row>
           </Col>
+        </>
       )}
     </section>
   );
