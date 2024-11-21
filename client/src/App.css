@@ -24,6 +24,14 @@
   color: black;
 }
 
+.card-pokemon-badge{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* font-size: 22px; */
+  color: grey;
+}
+
 
 .card-pokemon-img .image:after {
   background-color: rgba(233, 99, 3, 0.2);
@@ -40,4 +48,9 @@
 
 .card-body{
   border-radius: 1.2rem !important;
+}
+
+.image{
+  height:300px;
+  /* margin:auto; */
 }

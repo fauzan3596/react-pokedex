@@ -19,7 +19,6 @@ function Header() {
         }}
       ></div>
       <div className=" header-title z-2 w-50">
-        <h1>PokéVerse</h1>
         <h2 className="mb-3"><b>Your Ultimate Guide to the World of Pokémon</b></h2>
         <p className="">
           Explore Every Region, Discover Every Species, and Catch Them All on

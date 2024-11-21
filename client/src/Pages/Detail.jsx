@@ -156,17 +156,14 @@ function Detail() {
                     .map((abilityObj) => abilityObj.ability.name)
                     .join(", ")}
                 </p>
-                <p>
-                  <strong>Stats:</strong>
-                  <ul>
-                    {details.stats.map((statObj) => (
-                      <li key={statObj.stat.name}>
-                        {statObj.stat.name}: {statObj.base_stat}
-                      </li>
-                    ))}
-                  </ul>
-                </p>
-
+                <strong>Stats:</strong>
+                <ul>
+                  {details.stats.map((statObj) => (
+                    <li key={statObj.stat.name}>
+                      {statObj.stat.name}: {statObj.base_stat}
+                    </li>
+                  ))}
+                </ul>
                 <p>
                   <strong>Weaknesses:</strong>{" "}
                   {weaknesses.length > 0 ? weaknesses.join(", ") : "None"}

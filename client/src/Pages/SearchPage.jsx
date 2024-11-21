@@ -38,7 +38,7 @@ function SearchPage() {
           <Col md={10} className="mx-auto">
             <Row>
               {filteredPokemons.map((pokemon, i) => (
-                <Col md={4}>
+                <Col md={4} key={i}>
                   <CardPokemon url={pokemon.url} />
                 </Col>
               ))}
