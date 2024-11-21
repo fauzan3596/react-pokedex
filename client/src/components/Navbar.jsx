@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.svg";
+import logo from "../../public/pokeverse.png";
 import orangeBall from "../assets/orange-pokeball.svg";
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";

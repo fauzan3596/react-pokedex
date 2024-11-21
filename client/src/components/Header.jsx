@@ -8,7 +8,8 @@ function Header() {
       className="d-flex bg-primary flex-column justify-content-center align-items-center text-center text-white position-relative"
       style={{
         background: `url(${headerImg}) center/cover no-repeat`,
-        height: "88vh",
+        height: "100vh",
+        // fontFamily: "Montserrat"
       }}
     >
       <div
@@ -17,9 +18,10 @@ function Header() {
           backgroundColor: "rgba(0, 0, 0, .55)",
         }}
       ></div>
-      <div className="z-2 w-50">
-        <h1 className="mb-3">Your Ultimate Guide to the World of Pokémon</h1>
-        <p className="mb-5 fs-4 lead">
+      <div className=" header-title z-2 w-50">
+        <h1>PokéVerse</h1>
+        <h2 className="mb-3"><b>Your Ultimate Guide to the World of Pokémon</b></h2>
+        <p className="">
           Explore Every Region, Discover Every Species, and Catch Them All on
           Your Journey to Become a True Trainer!
         </p>
