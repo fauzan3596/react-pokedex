@@ -7,32 +7,29 @@ import axios from "axios";
 function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
+  const [filter, setFilter] = useState("all");
+  
 
-  console.log(pokemons.length)
-
+  const handleList = async (url) => {
+    try {
+      setFilter(url)
+      const filter = await axios({
+        method: "GET",
+        url: url,
+      });
+      if(url != 'all'){
+        setPokemons(filter.data.pokemon);
+      }else{
+        setPokemons(filter.data.results);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getPokemons((data) => setPokemons(data));
     getTypes((data) => setTypes(data));
-  }, []);
-
-  const handleList = async (url) => {
-    if(url != 'all'){
-      try {
-        const filter = await axios({
-          method: "GET",
-          url: url,
-        });
-        // console.log(filter.data.pokemon)
-        // data
-        setPokemons(filter.data.pokemon);
-        console.log(pokemons)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-  console.log(pokemons.length)
-
+  }, [pokemons]);
 
   return (
     <>
@@ -49,12 +46,10 @@ function Pokedex() {
                 {types.map((type, i) => {
                   if(i < 18){
                     return( 
-                      <>
-                        <ListGroup.Item className="" action onClick={() => handleList(type.url)} style={{border:'none'}}>
+                        <ListGroup.Item key={i} className="" action onClick={() => handleList(type.url)} style={{border:'none'}}>
                           <Image width="25px" className="" src={`/types/icons/${type.name}.svg`} style={{marginRight:'10px'}} />
                           {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
                         </ListGroup.Item>
-                      </>
                     )
                   }
                 })}
@@ -63,11 +58,21 @@ function Pokedex() {
           </Col>
           <Col md={10}>
             <Row>
-              {pokemons.map((pokemon, i) => (
-                <Col md={4}>
-                  <CardPokemon url={pokemon.url} />
-                </Col>
-              ))}
+              {pokemons?.map((pokemon, i) => {
+                if(filter == 'all'){
+                  return (
+                    <Col md={4} key={i}>
+                      <CardPokemon url={pokemon.url} />
+                    </Col>
+                  )
+                }else{
+                  return (
+                    <Col md={4} key={i}>
+                      <CardPokemon url={pokemon.pokemon?.url} />
+                    </Col>
+                  )
+                }
+              })}
             </Row>
           </Col>
         </Row>

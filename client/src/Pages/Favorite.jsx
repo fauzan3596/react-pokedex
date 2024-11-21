@@ -9,7 +9,7 @@ function Favorites() {
   useEffect(() => {
     const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
     setbookmarks(bookmarks);
-  }, []);
+  }, [bookmarks]);
 
   return (
     <Container className="favorites-page mt-4">
