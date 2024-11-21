@@ -7,7 +7,7 @@ import pokeballImg from "../assets/pokeball.svg";
 
 function CardPokemon({ url }) {
   const [detail, setDetail] = useState({});
-
+  const [isBookmarked, setIsBookmarked] = useState(false);
   useEffect(() => {
     getPokemonDetails(url, (data) => setDetail(data));
   }, [url]);
@@ -21,6 +21,33 @@ function CardPokemon({ url }) {
       return pokeballImg;
     }
   };
+  useEffect(() => {
+    getPokemonDetails(url, (data) => {
+      setDetail(data);
+      const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+      setIsBookmarked(bookmarks.some((item) => item.id === data.id));
+    });
+  }, [url]);
+  const toggleBookmark = () => {
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+    if (isBookmarked) {
+      const updatedBookmarks = bookmarks.filter((item) => item.id !== detail.id);
+      localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
+    } else {
+      bookmarks.push({
+        id: detail.id,
+        name: detail.name,
+        base_experience: detail.base_experience,
+        height: detail.height,
+        weight: detail.weight,
+        types: detail.types,
+        abilities: detail.abilities,
+        sprites: detail.sprites,
+      });
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    }
+    setIsBookmarked(!isBookmarked);
+  };
 
   return (
     <>
@@ -33,9 +60,15 @@ function CardPokemon({ url }) {
         </div>
         <div className="info d-flex justify-content-between align-items-start">
         <h4><b>{detail.name}</b></h4>
-        <div className="card-pokemon-bookmark">
-          <FaRegBookmark />
-          <span style={{ marginLeft: '10px' }}></span>
+        <div
+          className="card-pokemon-bookmark"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleBookmark();
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          {isBookmarked ? <FaBookmark color="gold" /> : <FaRegBookmark />}
         </div>
         <div>
           {detail.types?.map((tipe, index) => {

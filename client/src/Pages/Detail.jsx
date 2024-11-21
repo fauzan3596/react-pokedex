@@ -11,31 +11,10 @@ import {
   Col,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./detail.css";
+import "../components/Detail.css";
 import { Link, useParams } from "react-router-dom";
 
-const typeColors = {
-  fire: "#f76d57",
-  water: "#4f9fdb",
-  grass: "#34a853",
-  electric: "#f9cc1c",
-  poison: "#9b59b6",
-  bug: "#1abc9c",
-  flying: "#8e44ad",
-  ground: "#e67e22",
-  psychic: "#e74c3c",
-  rock: "#95a5a6",
-  ice: "#00bcd4",
-  ghost: "#8e44ad",
-  dragon: "#f39c12",
-  dark: "#2c3e50",
-  steel: "#dfe6e9",
-  fairy: "#ff86c7",
-  normal: "#bdc3c7",
-};
-
 function Detail() {
-  const [serverId, setServerId] = useState(null);
   const [details, setDetails] = useState(null);
   const [evolutionChain, setEvolutionChain] = useState([]);
   const [error, setError] = useState(null);
@@ -108,10 +87,6 @@ function Detail() {
     }
   }, [name]);
 
-  const handleEvolutionClick = (pokemonName) => {
-    setServerId(pokemonName);
-  };
-
   const handleMoveClick = async (moveUrl) => {
     try {
       const response = await axios.get(moveUrl);
@@ -123,6 +98,10 @@ function Detail() {
   };
 
   const closeModal = () => setShowMoveModal(false);
+
+  const getTypeIcon = (typeName) => {
+    return `/types/icons/${typeName}.svg`; // Pastikan ikon tipe tersedia di folder `/types/icons`
+  };
 
   return (
     <Container style={{ padding: "20px" }}>
@@ -162,16 +141,13 @@ function Detail() {
                 <p>
                   <strong>Types:</strong>{" "}
                   {details.types.map((typeObj) => (
-                    <span
+                    <img
                       key={typeObj.type.name}
-                      className="type-badge"
-                      style={{
-                        backgroundColor:
-                          typeColors[typeObj.type.name] || "#bdc3c7",
-                      }}
-                    >
-                      {typeObj.type.name}
-                    </span>
+                      src={getTypeIcon(typeObj.type.name)}
+                      alt={typeObj.type.name}
+                      width="30"
+                      style={{ marginRight: "5px" }}
+                    />
                   ))}
                 </p>
                 <p>
@@ -267,7 +243,20 @@ function Detail() {
 
       <Modal show={showMoveModal} onHide={closeModal}>
         <Modal.Header closeButton>
-          <Modal.Title>{selectedMove?.name}</Modal.Title>
+          <Modal.Title>
+            {selectedMove?.name}
+            {selectedMove?.type && (
+              <img
+                src={`/types/icons/${selectedMove.type.name}.svg`}
+                alt={selectedMove.type.name}
+                style={{
+                  width: "30px",
+                  marginLeft: "10px",
+                  verticalAlign: "middle",
+                }}
+              />
+            )}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {selectedMove && (
@@ -276,7 +265,16 @@ function Detail() {
                 <strong>Power:</strong> {selectedMove.power || "N/A"}
               </p>
               <p>
-                <strong>Type:</strong> {selectedMove.type.name}
+                <strong>Type:</strong> {selectedMove.type.name}{" "}
+                <img
+                  src={`/types/icons/${selectedMove.type.name}.svg`}
+                  alt={selectedMove.type.name}
+                  style={{
+                    width: "25px",
+                    marginLeft: "5px",
+                    verticalAlign: "middle",
+                  }}
+                />
               </p>
               <p>
                 <strong>PP:</strong> {selectedMove.pp}

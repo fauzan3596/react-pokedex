@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home"
 import MainLayout from "./layouts/MainLayout";
 import Pokedex from "./pages/Pokedex";
-import Favorite from "./pages/Favorite";
+import Favorite from "./Pages/Favorite";
 import SearchPage from "./pages/SearchPage";
 
-import Detail from "./components/Detail"
-import ErrorPage from "./pages/ErrorPage";
+import Detail from "./Pages/Detail"
+import ErrorPage from "./Pages/ErrorPage";
 const router = createBrowserRouter([
     {
         path: '/',
