@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPokemonDetails } from "../axios/fetchApi";
 import { Image, Row, Col, Card } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
-import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import pokeballImg from "../assets/pokeball.svg";
 
 function CardPokemon({ url }) {
@@ -24,27 +24,37 @@ function CardPokemon({ url }) {
 
   return (
     <>
-      <Card as="a" href={`detail/${detail.name}`} className="card-pokemon w-100">
+      <Card
+        as="a"
+        href={`detail/${detail.name}`}
+        className="card-pokemon w-100"
+      >
         <div className="image">
-          <Image className="card-pokemon-img w-100" variant="top" src={getPokemonImage()} />
+          <Image
+            className="card-pokemon-img w-100"
+            variant="top"
+            src={getPokemonImage()}
+          />
         </div>
-        <div>
-        #{detail.id}
-        </div>
+        <div className="card-pokemon-badge">#{detail.id}</div>
         <div className="info d-flex justify-content-between align-items-start">
-        <h4><b>{detail.name}</b></h4>
-        <div className="card-pokemon-bookmark">
-          <FaRegBookmark />
-          <span style={{ marginLeft: '10px' }}></span>
-        </div>
-        <div>
-          {detail.types?.map((tipe, index) => {
-            return (
-  
-                <Image width="25px" src={`/types/icons/${tipe.type.name}.svg`} key={index} />
-  
-            )
-          })}
+          <h4>
+            <b>{detail.name}</b>
+          </h4>
+          <div className="card-pokemon-bookmark">
+            <FaRegBookmark />
+            <span style={{ marginLeft: "10px" }}></span>
+          </div>
+          <div>
+            {detail.types?.map((tipe, index) => {
+              return (
+                <Image
+                  width="25px"
+                  src={`/types/icons/${tipe.type.name}.svg`}
+                  key={index}
+                />
+              );
+            })}
           </div>
         </div>
       </Card>
