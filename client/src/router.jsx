@@ -1,7 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "./pages/MainLayout"
 import Home from "./pages/Home"
+import MainLayout from "./layouts/MainLayout";
+import Pokedex from "./pages/Pokedex";
+import Favorite from "./Pages/Favorite";
+import SearchPage from "./pages/SearchPage";
 
+import Detail from "./Pages/Detail"
+import ErrorPage from "./Pages/ErrorPage";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -9,23 +14,27 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                elemmet: <Home />
+                element: <Home />
             },
             {
                 path: '/pokedex',
-                elemmet: <Home />
+                element: <Pokedex />
             },
             {
-                path: '/detail:id',
-                elemmet: <Home />
+                path: '/detail/:name',
+                element: <Detail />
             },
             {
                 path: '/search',
-                elemmet: <Home />
+                element: <SearchPage />
             },
             {
                 path: '/favorite',
-                elemmet: <Home />
+                element: <Favorite />
+            },
+            {
+                path: '*',
+                element: <ErrorPage />
             }
         ]
     }

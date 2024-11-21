@@ -1,42 +1,56 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-pokemon{
+  box-shadow: 0px 10px 51px -5px rgba(183, 189, 193, 0.3);
+  border-radius: 1.2rem;
+  padding: 13px 40px 24px 40px;
+  background: white;
+  border: none !important;
+  margin-bottom: 40px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.card-pokemon-bookmark{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  color: black;
 }
 
-.card {
-  padding: 2em;
+.card-pokemon-badge{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* font-size: 22px; */
+  color: grey;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+
+.card-pokemon-img .image:after {
+  background-color: rgba(233, 99, 3, 0.2);
+}
+
+.card-pokemon-img .image:after {
+  width: 16.5rem;
+  height: 16.5rem;
+  background-color: transparent;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.card-body{
+  border-radius: 1.2rem !important;
+}
+
+.image{
+  height:300px;
+  /* margin:auto; */
+}
