@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const getPokemons = async (cb) => {
+const getPokemons = async (param, cb) => {
   try {
     const pokemons = await axios({
       method: "GET",
       url: "https://pokeapi.co/api/v2/pokemon",
+      params: param
     });
     cb(pokemons.data.results);
   } catch (error) {
