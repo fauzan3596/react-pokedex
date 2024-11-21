@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
 .card-pokemon{
   box-shadow: 0px 10px 51px -5px rgba(183, 189, 193, 0.3);
   border-radius: 1.2rem;

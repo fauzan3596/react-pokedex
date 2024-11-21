@@ -4,7 +4,7 @@ import DiscoverPokemon from "../components/DiscoverPokemon";
 
 function Home() {
   return (
-    <main className="container-fluid p-0 bg-light">
+    <main className="container-fluid p-0 m-0 bg-light">
       <Header />
       {/* <DiscoverPokemon /> */}
     </main>
