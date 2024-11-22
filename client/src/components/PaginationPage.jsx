@@ -4,8 +4,8 @@ import ReactPaginate from "react-paginate";
 function PaginationPage({ totalPage, handlePageClick, forcePage }) {
   return (
     <ReactPaginate
-      previousLabel="⯇"
-      nextLabel="⯈"
+      previousLabel="<"
+      nextLabel=">"
       breakLabel="..."
       breakClassName="page-item"
       breakLinkClassName="page-link text-black rounded-3"
