@@ -4,6 +4,7 @@ import { getPokemons, getTypes } from "../axios/fetchApi";
 import CardPokemon from "../components/CardPokemon";
 import axios from "axios";
 import PaginationPage from "../components/PaginationPage";
+import pokeballIcon from "../assets/pokeball.svg";
 
 function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
@@ -67,16 +68,33 @@ function Pokedex() {
 
   return (
     <>
-      <Container>
-        <Row className="mt-4 pt-4">
+      <Container fluid="md">
+        <Row className="mt-4 pt-4 mb-4">
+          <Col md={12}>
+            <PaginationPage
+              totalPage={totalPage}
+              handlePageClick={handlePageClick}
+              forcePage={forcePage}
+            />
+          </Col>
+        </Row>
+        <Row>
           <Col md={2}>
-            <Card className="card-pokemon w-100 p-0">
+            <div className=" w-100 p-0">
               <ListGroup>
                 {/* <ListGroup defaultActiveKey="#All"> */}
                 <ListGroup.Item
                   action
                   onClick={() => handleList("all")}
                   style={{ border: "none" }}
+                  onMouseOver={({ target }) => {
+                    target.style.transform = "scale(1.1)";
+                    target.style.cursor = "pointer";
+                  }}
+                  onMouseOut={({ target }) => {
+                    target.style.transform = "scale(1)";
+                    target.style.cursor = "default";
+                  }}
                 >
                   <Image
                     width="25px"
@@ -95,6 +113,14 @@ function Pokedex() {
                         action
                         onClick={() => handleList(type.url)}
                         style={{ border: "none" }}
+                        onMouseOver={({ target }) => {
+                          target.style.transform = "scale(1.1)";
+                          target.style.cursor = "pointer";
+                        }}
+                        onMouseOut={({ target }) => {
+                          target.style.transform = "scale(1)";
+                          target.style.cursor = "default";
+                        }}
                       >
                         <Image
                           width="25px"
@@ -108,16 +134,23 @@ function Pokedex() {
                   }
                 })}
               </ListGroup>
-            </Card>
+            </div>
           </Col>
           <Col md={10}>
             <Row>
               <Col md={12}>
-                <PaginationPage
-                  totalPage={totalPage}
-                  handlePageClick={handlePageClick}
-                  forcePage={forcePage}
-                />
+                <h6>
+                  <img
+                    src={pokeballIcon}
+                    alt="Pokeball Image"
+                    height={25}
+                    className="me-2 mb-1"
+                  />
+                  <b>
+                    {itemOffset + 1} to {itemOffset + 18 <= filteredCount ? itemOffset + 18 : filteredCount}
+                  </b>{" "}
+                  from total “{filteredCount}” Pokémons
+                </h6>
               </Col>
             </Row>
             <Row>
@@ -127,15 +160,15 @@ function Pokedex() {
                 </Col>
               ))}
             </Row>
-            <Row>
-              <Col md={12}>
-                <PaginationPage
-                  totalPage={totalPage}
-                  handlePageClick={handlePageClick}
-                  forcePage={forcePage}
-                />
-              </Col>
-            </Row>
+          </Col>
+        </Row>
+        <Row className="mb-4">
+          <Col md={12}>
+            <PaginationPage
+              totalPage={totalPage}
+              handlePageClick={handlePageClick}
+              forcePage={forcePage}
+            />
           </Col>
         </Row>
       </Container>

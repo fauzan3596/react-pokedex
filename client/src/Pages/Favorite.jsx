@@ -17,8 +17,8 @@ function Favorites() {
   };
 
   return (
-    <Container className="favorites-page mt-4">
-      <h1>Favorite Pokémon</h1>
+    <Container className="favorites-page mt-4" style={{height:'100vh'}}>
+      <h2>Favorite Pokémon</h2>
       {bookmarks.length > 0 ? (
         <Row>
           {bookmarks.map((pokemon, index) => (

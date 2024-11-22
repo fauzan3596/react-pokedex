@@ -8,6 +8,8 @@ import pokeballImg from "../assets/pokeball.svg";
 function CardPokemon({ url, onBookmarkUpdate }) {
   const [detail, setDetail] = useState({});
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  
   useEffect(() => {
     getPokemonDetails(url, (data) => setDetail(data));
   }, [url]);
@@ -50,6 +52,11 @@ function CardPokemon({ url, onBookmarkUpdate }) {
       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     }
     setIsBookmarked(!isBookmarked);
+    setIsClicked(true);
+  };
+
+  const handleAnimationEnd = () => {
+    setIsClicked(false);
   };
 
   return (
@@ -63,20 +70,27 @@ function CardPokemon({ url, onBookmarkUpdate }) {
           <Image
             className="card-pokemon-img w-100"
             variant="top"
-            src={getPokemonImage()}
+            src={getPokemonImage()} 
+            // style={{background: 'radial-gradient(48.13% 48.05% at 50% 50%, rgba(206, 66, 101, 0.50) 0%, rgba(231, 67, 71, 0.00) 100%)'}}
           />
         </div>
         <div className="card-pokemon-badge">#{detail.id}</div>
-        <div className="info d-flex justify-content-between align-items-start">
-          <h4>
-            <b>{detail.name}</b>
-          </h4>
+        <div
+          className="info d-flex justify-content-between align-items-start pt-4"
+          style={{ height: "100px" }}
+        >
+          <h5>
+            <b className="text-capitalize">{detail.name}</b>
+          </h5>
           <div
-            className="card-pokemon-bookmark"
+            className={`card-pokemon-bookmark ${
+              isClicked ? "icon-animation" : ""
+            }`}
             onClick={(e) => {
               e.preventDefault();
               toggleBookmark();
             }}
+            onAnimationEnd={handleAnimationEnd}
             style={{ cursor: "pointer" }}
           >
             {isBookmarked ? <FaBookmark color="gold" /> : <FaRegBookmark />}
@@ -84,6 +98,7 @@ function CardPokemon({ url, onBookmarkUpdate }) {
           </div>
           <div>
             {detail.types?.map((tipe, index) => {
+              console.log(tipe)
               return (
                 <Image
                   width="25px"

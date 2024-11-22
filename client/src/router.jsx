@@ -7,6 +7,7 @@ import SearchPage from "./pages/SearchPage";
 
 import Detail from "./Pages/Detail"
 import ErrorPage from "./Pages/ErrorPage";
+import About from "./Pages/About";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
             {
                 path: '/favorite',
                 element: <Favorite />
+            },
+            {
+                path: '/about',
+                element: <About />
             },
             {
                 path: '*',
