@@ -8,6 +8,8 @@ import pokeballImg from "../assets/pokeball.svg";
 function CardPokemon({ url, onBookmarkUpdate }) {
   const [detail, setDetail] = useState({});
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  
   useEffect(() => {
     getPokemonDetails(url, (data) => setDetail(data));
   }, [url]);
@@ -50,6 +52,11 @@ function CardPokemon({ url, onBookmarkUpdate }) {
       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     }
     setIsBookmarked(!isBookmarked);
+    setIsClicked(true);
+  };
+
+  const handleAnimationEnd = () => {
+    setIsClicked(false);
   };
 
   return (
@@ -67,16 +74,22 @@ function CardPokemon({ url, onBookmarkUpdate }) {
           />
         </div>
         <div className="card-pokemon-badge">#{detail.id}</div>
-        <div className="info d-flex justify-content-between align-items-start pt-4" style={{height:'100px'}}>
+        <div
+          className="info d-flex justify-content-between align-items-start pt-4"
+          style={{ height: "100px" }}
+        >
           <h5>
             <b>{detail.name}</b>
           </h5>
           <div
-            className="card-pokemon-bookmark"
+            className={`card-pokemon-bookmark ${
+              isClicked ? "icon-animation" : ""
+            }`}
             onClick={(e) => {
               e.preventDefault();
               toggleBookmark();
             }}
+            onAnimationEnd={handleAnimationEnd}
             style={{ cursor: "pointer" }}
           >
             {isBookmarked ? <FaBookmark color="gold" /> : <FaRegBookmark />}
