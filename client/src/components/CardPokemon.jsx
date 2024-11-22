@@ -63,13 +63,14 @@ function CardPokemon({ url, onBookmarkUpdate }) {
           <Image
             className="card-pokemon-img w-100"
             variant="top"
-            src={getPokemonImage()}
+            src={getPokemonImage()} 
+            // style={{background: 'radial-gradient(48.13% 48.05% at 50% 50%, rgba(206, 66, 101, 0.50) 0%, rgba(231, 67, 71, 0.00) 100%)'}}
           />
         </div>
         <div className="card-pokemon-badge">#{detail.id}</div>
         <div className="info d-flex justify-content-between align-items-start pt-4" style={{height:'100px'}}>
           <h5>
-            <b>{detail.name}</b>
+            <b className="text-capitalize">{detail.name}</b>
           </h5>
           <div
             className="card-pokemon-bookmark"
@@ -84,6 +85,7 @@ function CardPokemon({ url, onBookmarkUpdate }) {
           </div>
           <div>
             {detail.types?.map((tipe, index) => {
+              console.log(tipe)
               return (
                 <Image
                   width="25px"
