@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import CardPokemon from "../components/CardPokemon";
 import LoadingSpinner from "../components/loadingSpinner";
 import ErrorPage from "./ErrorPage";
-import pokeballIcon from "../../public/pokeball-fill.svg";
+import pokeballIcon from "../assets/pokeball.svg";
 import PaginationPage from "../components/PaginationPage";
 
 function SearchPage() {
@@ -33,7 +33,8 @@ function SearchPage() {
     setItemOffset(0);
   }, [pokemons, query]);
 
-  const totalPage = Math.ceil(filteredPokemons.length / itemsPerPage);
+  const totalPokemon = filteredPokemons.length;
+  const totalPage = Math.ceil(totalPokemon / itemsPerPage);
 
   const handlePageClick = (event) => {
     const newOffset = event.selected * itemsPerPage;
@@ -50,7 +51,7 @@ function SearchPage() {
 
   return (
     <section className="container-fluid">
-      {filteredPokemons.length === 0 ? (
+      {totalPokemon === 0 ? (
         <ErrorPage query={query} type="search" />
       ) : loading ? (
         <LoadingSpinner loading={loading} />
@@ -59,8 +60,8 @@ function SearchPage() {
           <Col md={10} className="mx-auto">
             <Row>
               <h2 className="py-3">Search results for "{query}" pokemons</h2>
-              {filteredPokemons.length > itemsPerPage ? (
-                <Row className="py-3">
+              {totalPokemon > itemsPerPage ? (
+                <Row className="py-3 m-0">
                   <Col md={12}>
                     <PaginationPage
                       totalPage={totalPage}
@@ -77,22 +78,22 @@ function SearchPage() {
                     <img
                       src={pokeballIcon}
                       alt="Pokeball Image"
-                      height={35}
-                      className="me-1 mb-1"
+                      height={25}
+                      className="me-2 mb-1"
                     />
                     Found{" "}
-                    {filteredPokemons.length > itemsPerPage ? (
+                    {totalPokemon > itemsPerPage ? (
                       <>
                         <b>
                           {itemOffset + 1} to{" "}
-                          {itemOffset + 18 <= filteredPokemons.length
+                          {itemOffset + 18 <= totalPokemon
                             ? itemOffset + 18
-                            : filteredPokemons.length}
+                            : totalPokemon}
                         </b>{" "}
-                        from total “{filteredPokemons.length}” Pokémons
+                        from total “{totalPokemon}” Pokémons
                       </>
                     ) : (
-                      <span>total “{filteredPokemons.length}” Pokémons</span>
+                      <span>total “{totalPokemon}” Pokémons</span>
                     )}
                   </h6>
                 </Col>

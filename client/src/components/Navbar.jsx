@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/pokeball.svg";
+import logo from "../assets/logo-new.svg";
 import orangeBall from "../assets/orange-pokeball.svg";
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -26,7 +26,7 @@ function Navbar() {
   };
 
   const navLinkStyle = ({ isActive }) => ({
-    // backgroundColor: isActive ? "" : "transparent",
+    backgroundColor: isActive ? "rgba(200, 200, 200, 0.3)" : "transparent",
   });
 
   return (
@@ -41,7 +41,7 @@ function Navbar() {
               src={logo}
               className="mb-2 me-2"
               alt="Pokeball Image"
-              height={25}
+              height={30}
             // width={35}
             />
           </NavLink>
@@ -99,6 +99,22 @@ function Navbar() {
                 >
                   Favorite
                   {location.pathname === "/favorite" && (
+                    <img
+                      src={orangeBall}
+                      height={15}
+                      className="position-absolute start-50 top-100 text-warning translate-middle"
+                    />
+                  )}
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link rounded-pill px-3 me-2 position-relative"
+                  style={navLinkStyle}
+                  to="/about"
+                >
+                  About
+                  {location.pathname === "/about" && (
                     <img
                       src={orangeBall}
                       height={15}

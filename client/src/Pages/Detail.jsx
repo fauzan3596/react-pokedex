@@ -146,11 +146,12 @@ function Detail() {
                       src={getTypeIcon(typeObj.type.name)}
                       alt={typeObj.type.name}
                       width="30"
+                      className="mb-1"
                       style={{ marginRight: "5px" }}
                     />
                   ))}
                 </p>
-                <p>
+                <p className="text-capitalize">
                   <strong>Abilities:</strong>{" "}
                   {details.abilities
                     .map((abilityObj) => abilityObj.ability.name)
@@ -159,23 +160,23 @@ function Detail() {
                 <strong>Stats:</strong>
                 <ul>
                   {details.stats.map((statObj) => (
-                    <li key={statObj.stat.name}>
+                    <li key={statObj.stat.name} className="text-capitalize">
                       {statObj.stat.name}: {statObj.base_stat}
                     </li>
                   ))}
                 </ul>
-                <p>
+                <p className="text-capitalize">
                   <strong>Weaknesses:</strong>{" "}
                   {weaknesses.length > 0 ? weaknesses.join(", ") : "None"}
                 </p>
 
-                <div>
+                <div className="pb-3">
                   <h4>Moves:</h4>
                   {details.moves.slice(0, 5).map((moveObj) => (
                     <Button
                       key={moveObj.move.name}
                       onClick={() => handleMoveClick(moveObj.move.url)}
-                      className="button-link"
+                      className="button-link me-2"
                     >
                       {moveObj.move.name}
                     </Button>
@@ -219,7 +220,10 @@ function Detail() {
                 md={4}
                 className="mb-3 d-flex justify-content-center"
               >
-                <Link to={`/detail/${evolution.species.name}`}>
+                <Link
+                  to={`/detail/${evolution.species.name}`}
+                  className="text-decoration-none"
+                >
                   <Card className="evolution-card">
                     <Card.Body>
                       <img
@@ -228,7 +232,9 @@ function Detail() {
                         }.png`}
                         alt={evolution.species.name}
                       />
-                      <p>{evolution.species.name}</p>
+                      <p className="text-capitalize fw-semibold">
+                        {evolution.species.name}
+                      </p>
                     </Card.Body>
                   </Card>
                 </Link>
@@ -240,12 +246,13 @@ function Detail() {
 
       <Modal show={showMoveModal} onHide={closeModal}>
         <Modal.Header closeButton>
-          <Modal.Title>
+          <Modal.Title className="text-capitalize">
             {selectedMove?.name}
             {selectedMove?.type && (
               <img
                 src={`/types/icons/${selectedMove.type.name}.svg`}
                 alt={selectedMove.type.name}
+                className="mb-1"
                 style={{
                   width: "30px",
                   marginLeft: "10px",
@@ -261,11 +268,12 @@ function Detail() {
               <p>
                 <strong>Power:</strong> {selectedMove.power || "N/A"}
               </p>
-              <p>
+              <p className="text-capitalize">
                 <strong>Type:</strong> {selectedMove.type.name}{" "}
                 <img
                   src={`/types/icons/${selectedMove.type.name}.svg`}
                   alt={selectedMove.type.name}
+                  className="mb-1"
                   style={{
                     width: "25px",
                     marginLeft: "5px",

@@ -17,7 +17,7 @@ function Header() {
           // fontFamily: "Montserrat"
         }}
       >
-        <Row>
+        <Row className="m-0">
           <Col md={12}>
             <img
               src={headLine}
@@ -26,7 +26,7 @@ function Header() {
             />
           </Col>
         </Row>
-        <Row style={{ marginTop: '-130px', backgroundColor:''}}>
+        <Row style={{ marginTop: '-130px', backgroundColor:''}} className="m-0">
           <Col md={3}></Col>
           <Col md={2} className="d-flex flex-column align-items-center text-center">
             <img
