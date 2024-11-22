@@ -13,12 +13,12 @@ function Navbar() {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (query.length > 2) {
+    if (query.length > 1) {
       setQuery("");
       navigate("/search", { state: { query } });
     } else {
       Swal.fire({
-        title: "Please enter more than 2 letters for the search!",
+        title: "Please enter more than one letter for the search!",
         icon: "warning"
       });
     }

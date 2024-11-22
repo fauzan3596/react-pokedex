@@ -4,6 +4,7 @@ import { getPokemons, getTypes } from "../axios/fetchApi";
 import CardPokemon from "../components/CardPokemon";
 import axios from "axios";
 import PaginationPage from "../components/PaginationPage";
+import pokeballIcon from "../../public/pokeball-fill.svg";
 
 function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
@@ -87,12 +88,12 @@ function Pokedex() {
                   onClick={() => handleList("all")}
                   style={{ border: "none" }}
                   onMouseOver={({ target }) => {
-                    target.style.transform = 'scale(1.1)';
-                    target.style.cursor = 'pointer';
+                    target.style.transform = "scale(1.1)";
+                    target.style.cursor = "pointer";
                   }}
                   onMouseOut={({ target }) => {
-                    target.style.transform = 'scale(1)';
-                    target.style.cursor = 'default';
+                    target.style.transform = "scale(1)";
+                    target.style.cursor = "default";
                   }}
                 >
                   <Image
@@ -113,12 +114,12 @@ function Pokedex() {
                         onClick={() => handleList(type.url)}
                         style={{ border: "none" }}
                         onMouseOver={({ target }) => {
-                          target.style.transform = 'scale(1.1)';
-                          target.style.cursor = 'pointer';
+                          target.style.transform = "scale(1.1)";
+                          target.style.cursor = "pointer";
                         }}
                         onMouseOut={({ target }) => {
-                          target.style.transform = 'scale(1)';
-                          target.style.cursor = 'default';
+                          target.style.transform = "scale(1)";
+                          target.style.cursor = "default";
                         }}
                       >
                         <Image
@@ -136,6 +137,22 @@ function Pokedex() {
             </div>
           </Col>
           <Col md={10}>
+            <Row>
+              <Col md={12}>
+                <h6>
+                  <img
+                    src={pokeballIcon}
+                    alt="Pokeball Image"
+                    height={35}
+                    className="me-1 mb-1"
+                  />
+                  <b>
+                    {itemOffset + 1} to {itemOffset + 18 <= filteredCount ? itemOffset + 18 : filteredCount}
+                  </b>{" "}
+                  from total “{filteredCount}” Pokémons
+                </h6>
+              </Col>
+            </Row>
             <Row>
               {pokemons?.map((pokemon, i) => (
                 <Col md={4} key={i}>
