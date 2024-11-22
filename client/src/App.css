@@ -14,6 +14,11 @@
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
   position: relative;
+  transition: transform 0.4s ease;
+}
+
+.card-pokemon:hover{
+  transform: scale(1.05);
 }
 
 .card-pokemon-bookmark{
@@ -53,4 +58,17 @@
 .image{
   height:300px;
   /* margin:auto; */
+}
+
+.page-link{
+  border:none !important;
+}
+
+.bg-purple{
+  background-color: rgb(144, 93, 207) !important;
+}
+
+.list-group-item{
+  border-radius: 20px !important;
+  font-size: 12px;
 }

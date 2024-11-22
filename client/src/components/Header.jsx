@@ -1,5 +1,5 @@
 import React from "react";
-import headerImg from "../assets/header-image.jpg";
+import headerImg from "../assets/bg4.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -14,9 +14,9 @@ function Header() {
     >
       <div
         className="overlay h-100 w-100 z-1 position-absolute top-0 start-0 z-1"
-        style={{
-          backgroundColor: "rgba(0, 0, 0, .55)",
-        }}
+        // style={{
+        //   backgroundColor: "rgba(0, 0, 0, .55)",
+        // }}
       ></div>
       <div className=" header-title z-2 w-50">
         <h2 className="mb-3"><b>Your Ultimate Guide to the World of Pokémon</b></h2>

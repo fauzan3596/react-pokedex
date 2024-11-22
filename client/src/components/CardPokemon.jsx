@@ -67,10 +67,10 @@ function CardPokemon({ url, onBookmarkUpdate }) {
           />
         </div>
         <div className="card-pokemon-badge">#{detail.id}</div>
-        <div className="info d-flex justify-content-between align-items-start">
-          <h4>
+        <div className="info d-flex justify-content-between align-items-start pt-4" style={{height:'100px'}}>
+          <h5>
             <b>{detail.name}</b>
-          </h4>
+          </h5>
           <div
             className="card-pokemon-bookmark"
             onClick={(e) => {
